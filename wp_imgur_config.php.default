@@ -1,0 +1,31 @@
+<?php
+    $sfckdb_hostname="localhost";
+    $sfckdb_username="";// MySQL username
+    $sfckdb_password="";// MySQL password
+    $sfckdb_dbname="";// MySQL DB name
+
+    $mysqli = new mysqli($sfckdb_hostname, $sfckdb_username, $sfckdb_password, $sfckdb_dbname);
+    $mysqli->set_charset("utf8");
+
+    if ($mysqli->connect_error) {
+        die('Connect Error: ' . $mysqli->connect_error);
+    }
+
+	
+    
+	$config = array();
+	//以下必填
+	//自定義搜尋哪些狀態下的文章，留空則全數搜尋
+	$config['status'] = '';
+
+	//下載到哪個資料夾
+	$config['dlfloder'] = 'wp-content/uploads/imgur';
+
+	//要修改回文章的路徑
+	$config['websiteurl'] = 'http://123.com'.'/'.$config['dlfloder'];
+
+
+	//測試模式
+	$config['test'] = 1;
+
+?>
